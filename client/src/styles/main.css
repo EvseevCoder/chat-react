@@ -1,0 +1,62 @@
+body {
+    background: rgb(99, 37, 169);
+    font-size: 16px;
+    font-family: "Rubik", "Roboto", sans-serif;
+    color: rgb(48, 43, 43);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+input,
+button {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    color: rgb(48, 43, 43);
+    font-size: 16px;
+    font-family: "Rubik", "Roboto", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(48, 43, 43);
+}
+
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.container {
+    width: 1240px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
