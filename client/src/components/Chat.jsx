@@ -2,6 +2,7 @@
 import React, { useEffect, useState }from "react";
 import { useLocation } from "react-router-dom";
 import io from "socket.io-client";
+import EmojiPicker from "emoji-picker-react";
 
 // Styles
 import styles from "../styles/Chat.module.css";
@@ -19,6 +20,7 @@ export default function Chat() {
     });
     const [message, setMessage] = useState("");
     const [state, setState] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
 
     // Effects
     useEffect(() => {
@@ -45,6 +47,15 @@ export default function Chat() {
         console.log("leave room");
     }
 
+    const handleOpenEmoji = (e) => {
+        e.preventDefault();
+        setIsOpen(!isOpen);
+    }
+
+    const handleEmojiClick = ({emoji}) => {
+        setMessage(`${message}${emoji}`);
+    }
+
     return (
         <div className={styles.wrap}>
             <div className={styles.header}>
@@ -64,7 +75,7 @@ export default function Chat() {
             </div>
 
             <div className={styles.messages}>
-               {state.map(({message}) => <span>{message}</span>)}
+               {state.map(({message}, index) => <span key={index}>{message}</span>)}
             </div>
 
             <form action="" className={styles.form}>
@@ -78,6 +89,20 @@ export default function Chat() {
                         onChange={handleChange}
                         required
                     />
+                </div>
+
+                <div className={styles.emoji}>
+                    <button onClick={handleOpenEmoji}>
+                        <span>🙂</span>
+                    </button>
+
+                    {
+                        isOpen && (
+                            <div className={styles.emojies}>
+                                <EmojiPicker onEmojiClick={handleEmojiClick}/>
+                            </div>
+                        )
+                    }
                 </div>
             </form>
         </div>

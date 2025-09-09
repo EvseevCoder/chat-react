@@ -1,5 +1,5 @@
 const trimString = (str) => {
-    return str.trim().toLowerCase();
+    return String(str ?? "").trim().toLowerCase();
 }
 
 module.exports = { trimString };
